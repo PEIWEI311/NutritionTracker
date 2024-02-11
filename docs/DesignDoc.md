@@ -7,16 +7,17 @@
 > and appear in the generated PDF in italics._
 
 ## Team Information
-* Team name: TEAMNAME
+* Team name: CAZAM
 * Team members
-  * MEMBER1
-  * MEMBER2
-  * MEMBER3
-  * MEMBER4
+  * Collin Cleary
+  * Abdul Ahad Khan
+  * Aitan Bachrach
+  * Muskan Shah
+  * Zaige Shi
 
 ## Executive Summary
 
-This is a summary of the project.
+Nutrition Tracker is a web app where account holders can track their meals, nutrition details, calorie count, water intake, and weight. 
 
 
 ## Requirements
@@ -24,7 +25,16 @@ This is a summary of the project.
 This section describes the features of the application.
 
 ### Definition of MVP
-> _Provide a simple description of the Minimum Viable Product._
+  * user registration and authentication
+  * profile creation
+  * daily food log
+  * calorie tracking
+  * nutrient breakdown
+  * water intake tracker
+  * weight tracking
+  * progress dashboard
+  * food database
+  * per-account custom items and meals
 
 ### MVP Features
 >  _Provide a list of top-level Epics and/or Stories of the MVP._
