@@ -33,37 +33,37 @@ This section describes the features of the application.
 
 ### MVP Features
 * Epic: User Registration and Authentication
- * Story: Implement user registration functionality
- * Story: Implement user login functionality
+  * Story: Implement user registration functionality
+  * Story: Implement user login functionality
 
 * Epic: Profile Creation
- * Story: Allow users to create their profiles with basic information (e.g., name, age, gender)
- * Story: Implement profile editing functionality
+  * Story: Allow users to create their profiles with basic information (e.g., name, age, gender)
+  * Story: Implement profile editing functionality
 
 * Epic: Daily Food Log
- * Story: Allow users to log their daily food intake
- * Story: Enable users to view and edit their food logs
+  * Story: Allow users to log their daily food intake
+  * Story: Enable users to view and edit their food logs
 
 * Epic: Calorie Tracking
- * Story: Implement calorie tracking based on logged food items
- * Story: Display daily calorie consumption to the user
+  * Story: Implement calorie tracking based on logged food items
+  * Story: Display daily calorie consumption to the user
 
 * Epic: Nutrient Breakdown
- * Story: Calculate and display nutrient breakdown (e.g., protein, carbohydrates, fat) based on logged food items
+  * Story: Calculate and display nutrient breakdown (e.g., protein, carbohydrates, fat) based on logged food items
 
 * Epic: Water Intake Tracker
- * Story: Enable users to log their daily water intake
- * Story: Display daily water intake progress
+  * Story: Enable users to log their daily water intake
+  * Story: Display daily water intake progress
 
 * Epic: Weight Tracking
- * Story: Allow users to log their weight regularly
- * Story: Display weight tracking graph/chart
+  * Story: Allow users to log their weight regularly
+  * Story: Display weight tracking graph/chart
 
 * Epic: Progress Dashboard
- * Story: Create a dashboard to visualize user's progress over time (e.g., weight loss/gain, calorie intake)
+  * Story: Create a dashboard to visualize user's progress over time (e.g., weight loss/gain, calorie intake)
 
 * Epic: Food Database
- * Story: Implement a database of commonly consumed foods with their nutritional information
+  * Story: Implement a database of commonly consumed foods with their nutritional information
 
 
 ## Architecture and Design
@@ -81,5 +81,20 @@ In the use case diagram, there is one actor: User. There're ten use cases for us
 
 
 ### Class Diagram
-> _Place a class diagram here._
-> _Describe your class diagram._
+
+![Class Diagram](https://cdn.discordapp.com/attachments/1202803055616065609/1207859313637466143/Class_Diagram-CAZAM.png?ex=65e12da5&is=65ceb8a5&hm=64ab4c3ef572a7d7d38c3effe3ccfabe4e2313ea3b994c8aae822bb280ad2ee2&)
+
+Our system will have a User object which will hold a user's personal data 
+including their tracked health information and custom food items
+
+Several functional elements of our application will be composed of "DataTrackers"
+which are responsible for dates, times, and values of entries relevant to their specifications
+
+So far we have a weight tracker, water intake tracker, and daily food tracker. Weight tracker and water intake tracker will
+be fairly straight forward. Daily Food tracker will interact with FoodEntry objects.
+
+Food entries themselves can contain ingredients (other food entries)
+and a nutrient breakdown.
+
+NutrientBreakdown objects are a collection of nutritional information similar to a 
+miniature digital nutrition label
