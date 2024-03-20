@@ -1,0 +1,6 @@
+[
+    { "date": "2024-03-17", "userId": "user1", "intake": 2000 },
+    { "date": "2024-03-18", "userId": "user2", "intake": 2200 },
+    { "date": "2024-03-19", "userId": "user3", "intake": 1800 }
+  ]
+  
