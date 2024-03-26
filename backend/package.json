@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx mocha **/dataTest.js"
+    "test": "./node_modules/.bin/mocha **/dataTest.js"
   },
   "keywords": [],
   "author": "",
