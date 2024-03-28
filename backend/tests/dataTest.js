@@ -9,6 +9,9 @@ const mongoose = require('mongoose');
 const Water = require('../models/waterModel');
 const Calorie = require('../models/calorieModel');
 const Weight = require('../models/weightModel');
+const jwt = require('jsonwebtoken');
+const users = require('../data/user.json');
+const secretKey = '3d6818d12074be9c939de6c49c62f0bc';
 
 // Test server port
 const testPort = 3006;
@@ -65,7 +68,6 @@ describe('API Tests', () => {
       assert.equal(response.status, 201);
     });
 
-    // Add more test cases...
   });
 
   // Calorie data test cases
@@ -84,7 +86,6 @@ describe('API Tests', () => {
       assert.equal(response.status, 201);
     });
 
-    // Add more test cases...
   });
 
   // Weight data test cases
@@ -103,6 +104,47 @@ describe('API Tests', () => {
       assert.equal(response.status, 201);
     });
 
-    // 添加更多的测试用例...
+   // Login API test cases
+    describe('Login API', () => {
+    it('should login with correct credentials and return JWT token', async () => {
+  
+    const validCredentials = { userName: 'john_doe', password: 'password123' };
+
+    const response = await request(`http://localhost:${testPort}`)
+      .post('/auth/login')
+      .send(validCredentials);
+
+    assert.equal(response.status, 200);
+    assert(response.body.token);
+
+    // Verify JWT token
+    const decodedToken = jwt.verify(response.body.token, secretKey);
+    assert.equal(decodedToken.userName, validCredentials.userName);
+  });
+
+  it('should return 401 for invalid credentials', async () => {
+  
+    const invalidCredentials = { userName: 'invalid_user', password: 'invalid_password' };
+
+    const response = await request(`http://localhost:${testPort}`)
+      .post('/auth/login')
+      .send(invalidCredentials);
+
+    assert.equal(response.status, 401);
+    assert.equal(response.body.message, 'Invalid username or password');
+    });
+   });
+
+    // Logout API test case
+    describe('Logout API', () => {
+     it('should return success message for logout', async () => {
+    const response = await request(`http://localhost:${testPort}`).post('/auth/logout');
+
+    assert.equal(response.status, 200);
+    assert.equal(response.body.message, 'Logout successful');
+    });
+   });
+   
+   // add more test cases
   });
 });
