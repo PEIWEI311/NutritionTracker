@@ -60,6 +60,7 @@ describe('API Tests', () => {
       assert(Array.isArray(response.body), 'Response is not an array');
     });
 
+    // Test to add water data
     it('should add water data', async () => {
       const newData = { date: new Date(), userId: '123', amount: 500 };
       const response = await request(`http://localhost:${testPort}`)
@@ -78,6 +79,7 @@ describe('API Tests', () => {
       assert(Array.isArray(response.body), 'Response is not an array');
     });
 
+    // Test to add calorie data
     it('should add calorie data', async () => {
       const newData = { date: new Date(), userId: '1234', intake: 500 };
       const response = await request(`http://localhost:${testPort}`)
@@ -96,6 +98,7 @@ describe('API Tests', () => {
       assert(Array.isArray(response.body), 'Response is not an array');
     });
 
+    // Test to add weight data
     it('should add weight data', async () => {
       const newData = { date: new Date(), userId: '1234', value: 70 };
       const response = await request(`http://localhost:${testPort}`)
@@ -117,8 +120,7 @@ describe('API Tests', () => {
     assert.equal(response.status, 200);
     assert(response.body.token);
 
-    // Verify JWT token
-    const decodedToken = jwt.verify(response.body.token, secretKey);
+    const decodedToken = jwt.verify(response.body.token, secretKey);  // Verify JWT token
     assert.equal(decodedToken.userName, validCredentials.userName);
   });
 
