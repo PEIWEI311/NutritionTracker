@@ -18,4 +18,15 @@ router.get('/weight', dataController.getWeightData);
 router.post('/weight', dataController.createWeightData);
 router.delete('/weight/:id', dataController.deleteWeightData);
 
+// Food Entry routes
+router.get('/foodentry', dataController.getFoodEntryData);
+router.post('/foodentry', dataController.createFoodEntryData);
+router.delete('/foodentry/:id', dataController.deleteFoodEntryData);
+
+// Food Item routes
+router.get('/fooditem', dataController.getFoodItemData);
+router.post('/fooditem', dataController.createFoodItemData);
+router.delete('/fooditem/:id', dataController.deleteFoodItemData);
+
+
 module.exports = router;

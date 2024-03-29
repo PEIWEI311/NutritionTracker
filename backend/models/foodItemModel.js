@@ -5,6 +5,7 @@ const foodItemSchema = new mongoose.Schema({
   nutrition : {type : Map, of: Number, required: true},
   name : { type: String, required: true },
   ingredients : { type: String, required: true },
+  userId: { type: String, required: true }
 });
 
 const FoodItem = mongoose.model('FoodItem', foodItemSchema);
