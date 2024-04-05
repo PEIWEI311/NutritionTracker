@@ -18,7 +18,7 @@
 
     
 
-  "test": "nyc mocha backend/tests/dataTest.js --exit"
+  "test": "nyc node_modules/mocha/bin/mocha **/dataTest.js --exit"
   
 
   },
