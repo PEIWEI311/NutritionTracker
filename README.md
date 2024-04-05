@@ -63,4 +63,4 @@ This is a set of API tests written in JavaScript using the Mocha testing framewo
 
 ![](https://github.com/PEIWEI311/NutritionTracker/blob/main/media/test_screenshot1.png)
 
-![]([C:\Users\QWER\Desktop\屏幕截图 2024-04-05 021636.png](https://github.com/PEIWEI311/NutritionTracker/blob/main/media/test_screenshot2.png))
+![](https://github.com/PEIWEI311/NutritionTracker/blob/main/media/test_screenshot2.png)
