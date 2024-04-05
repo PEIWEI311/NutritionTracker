@@ -18,4 +18,5 @@ router.get('/weight', dataController.getWeightData);
 router.post('/weight', dataController.createWeightData);
 router.delete('/weight/:id', dataController.deleteWeightData);
 
+// Sleep routes
 module.exports = router;
