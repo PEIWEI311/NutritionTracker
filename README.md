@@ -43,7 +43,7 @@ In the design document we specify the Team Information,Executive Summary and Arc
 
 In the terminal, enter: node server.js
 
-![image-20240404203903827](C:\Users\QWER\AppData\Roaming\Typora\typora-user-images\image-20240404203903827.png)
+![image-20240404203903827](https://github.com/PEIWEI311/NutritionTracker/blob/main/media/runProject.png)
 
 ## Testing
 
@@ -61,6 +61,6 @@ This is a set of API tests written in JavaScript using the Mocha testing framewo
 
 [Testing screenshot(s)]
 
-![](C:\Users\QWER\Desktop\屏幕截图 2024-04-05 021519.png)
+![](https://github.com/PEIWEI311/NutritionTracker/blob/main/media/test_screenshot1.png)
 
-![](C:\Users\QWER\Desktop\屏幕截图 2024-04-05 021636.png)
+![]([C:\Users\QWER\Desktop\屏幕截图 2024-04-05 021636.png](https://github.com/PEIWEI311/NutritionTracker/blob/main/media/test_screenshot2.png))
