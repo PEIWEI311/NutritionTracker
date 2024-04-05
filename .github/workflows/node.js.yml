@@ -17,7 +17,7 @@ jobs:
     services:
       mongodb:
         image: mongo:4.4
-        options: --name mongodb -p 27017:27017  # 将 MongoDB 映射到主机的 27017 端口
+        options: --name mongodb -p 27018:27017  # 将 MongoDB 映射到主机的 27017 端口
         ports:
           - 27017:27017
         # 可以在此处添加其他 MongoDB 配置选项，比如认证设置
