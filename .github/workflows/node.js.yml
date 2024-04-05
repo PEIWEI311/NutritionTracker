@@ -13,36 +13,43 @@ jobs:
   test:
     name: Backend Tests
     runs-on: ubuntu-latest
-
+    
     services:
       mongodb:
         image: mongo:4.4
-        options: --name mongodb -p 27018:27017  # 将 MongoDB 映射到主机的 27017 端口
+        options: --name mongodb -p 27018:27017  # 将 MongoDB 映射到主机的 27018 端口
         ports:
-          - 27017:27017
-        # 可以在此处添加其他 MongoDB 配置选项，比如认证设置
+          - 27018:27017
+
+    strategy:
+      matrix:
+        node-version: [v20.x, 21.x, 22.x]
+        mongodb-version: ['4.4']
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm install
-        working-directory: backend
-
-      - name: Run Tests
-        run: npm test
-        working-directory: backend
-
-      - name: Stop MongoDB
-        run: docker stop mongodb
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4.0.1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          slug: PEIWEI311/NutritionTracker
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: '21.x'
+        # cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      working-directory: backend
+      
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.10.0
+      with:
+        mongodb-version: '4.4'
+        options: --port 27017  # 指定 MongoDB 的端口为 27017
+        
+    - run: npm test
+      working-directory: backend
+      
+    - name: Upload coverage reports to Codecov
+      uses: codecov/codecov-action@v4.0.1
+      with:
+        token: ${{ secrets.CODECOV_TOKEN }}
+        slug: PEIWEI311/NutritionTracker
