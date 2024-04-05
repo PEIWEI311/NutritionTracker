@@ -18,7 +18,7 @@
 
     
 
-  "test": "nyc mocha **/dataTest.js --exit"
+  "test": "nyc mocha **/dataTest.js --coverage --exit"
   
 
   },
