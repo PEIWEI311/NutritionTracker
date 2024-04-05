@@ -32,7 +32,7 @@
 
 
 
-  "test": "nyc mocha **/dataTest.js --exit"
+  "test": "npx nyc --reporter=lcov --reporter=text-summary mocha **/dataTest.js --exit"
   
 
 
@@ -44,10 +44,8 @@
 
   
   "nyc": {
-      "reporter": ["text", "html"],
-      "report-dir": "./coverage",
-      "include": ["src/**/*.js"],
-      "exclude": ["node_modules", "test/**/*.js"]
+    "all": true,
+    "report-dir": "./coverage"
   },
   
   
